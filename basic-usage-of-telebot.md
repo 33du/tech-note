@@ -1,4 +1,4 @@
-#The basic usage of telebot API
+# The basic usage of telebot API
 
 Install via npm in project directory:
 ```
