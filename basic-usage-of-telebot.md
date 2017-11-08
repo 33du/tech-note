@@ -1,11 +1,11 @@
-The basic usage of telebot API:
+#The basic usage of telebot API
 
 Install via npm in project directory:
 ```
 npm install telebot --save
 ```
 
-Create a .js file like index.js, and inside it require the api and get a echobot:
+Create a .js file like index.js, and inside it require the api and get a (echo)bot:
 ```javascript
 const TeleBot = require('telebot')
 const bot = new TeleBot('TELEGRAM_BOT_TOKEN') //Token from BotFather
