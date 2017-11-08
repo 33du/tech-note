@@ -20,3 +20,5 @@ Then run:
 node index.js
 ```
 and you can talk with the bot!
+
+API: https://github.com/mullwar/telebot
