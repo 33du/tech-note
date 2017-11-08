@@ -1,5 +1,3 @@
-# tech-note
-
 The basic usage of telebot API:
 
 Install via npm in project directory:
