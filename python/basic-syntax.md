@@ -1,2 +1,7 @@
-run a script: python3 xxx.py
+run a script: 
+```
+python3 xxx.py
+```
+
+
 
