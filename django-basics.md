@@ -46,13 +46,19 @@ def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 ```
 
-#### Database (MongoDB)
+#### Database (MongoDB) with django-nonrel
 in settings.py:
 ```
 DATABASES = {
-        'default': {
-                'ENGINE': 'djongo',
-                'NAME': 'your-db-name',
-        }
+   'default' : {
+      'ENGINE' : 'django_mongodb_engine',
+      'NAME' : 'my_database'
+   }
 }
+```
+
+run for the first time:
+```
+manage.py makemigrations <app_name> 
+manage.py migrate
 ```
