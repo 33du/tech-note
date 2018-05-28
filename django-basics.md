@@ -1,4 +1,6 @@
-```django-admin startproject mysite```
+```
+django-admin startproject mysite
+```
 
 in mysite: 
 ```
@@ -22,7 +24,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.index, name='index'), # name can be used in reverse()
 ]
 ```
 mysite/urls.py:
@@ -31,8 +33,8 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('polls/', include('polls.urls')),
-    path('admin/', admin.site.urls),
+    path('polls/', include('polls.urls')), # ref to polls/urls.py
+    path('admin/', admin.site.urls), # the only ref that doesn't need an include
 ]
 ```
 
@@ -42,4 +44,15 @@ from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
+```
+
+#### Database (MongoDB)
+in settings.py:
+```
+DATABASES = {
+        'default': {
+                'ENGINE': 'djongo',
+                'NAME': 'your-db-name',
+        }
+}
 ```
