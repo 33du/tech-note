@@ -1,10 +1,10 @@
-> django-admin startproject mysite
+```django-admin startproject mysite```
 
 in mysite: 
-> python manage.py runserver [+port]
--> http://localhost:8000/
+```python manage.py runserver [+port]  # http://localhost:8000/
+```
 
-> python manage.py startapp polls #creates app
+```python manage.py startapp polls #creates app```
 
 ####MVC in django
 model: manages the data, logic and rules of the application
