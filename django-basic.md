@@ -1,12 +1,13 @@
 ```django-admin startproject mysite```
 
 in mysite: 
-```python manage.py runserver [+port]  # http://localhost:8000/
+```
+python manage.py runserver [+port]  # http://localhost:8000/
+
+python manage.py startapp polls #creates app
 ```
 
-```python manage.py startapp polls #creates app```
-
-####MVC in django
+#### MVC in django
 model: manages the data, logic and rules of the application
 view: output representation of information -> **templates** in django
 controller: accepts input and converts it to commands for the model or view -> **view** in django, a Python callback function for a particular URL, describes which data is presented
