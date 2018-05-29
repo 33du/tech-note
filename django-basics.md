@@ -49,8 +49,8 @@ def index(request):
 #### Database (mysql)
 **migration:** propagates changes made to models (adding a field, deleting a model, etc.) into database schema
 ```
-manage.py makemigrations <app_name> 
-manage.py migrate
+manage.py makemigrations <app_name> #generates new migration files
+manage.py migrate #apply the migration
 ```
 
 settings.py:
