@@ -27,6 +27,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'), # name can be used in reverse()
+    path('<int:question_id>/', views.detail, name='detail') #pass a parameter to detail()
 ]
 ```
 mysite/urls.py:
@@ -40,12 +41,17 @@ urlpatterns = [
 ]
 ```
 
+**views**: returns HttpResponse or exception
+
 polls/views.py:
 ```
 from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
+    
+def detail(request, question_id):
+    return HttpResponse("You're looking at question %s." % question_id)
 ```
 
 #### Database (mysql)
