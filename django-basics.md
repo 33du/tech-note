@@ -47,6 +47,12 @@ def index(request):
 ```
 
 #### Database (mysql)
+**migration:** propagates changes made to models (adding a field, deleting a model, etc.) into database schema
+```
+manage.py makemigrations <app_name> 
+manage.py migrate
+```
+
 settings.py:
 ```
 DATABASES = {
@@ -81,10 +87,4 @@ host = localhost
 user = DB_USER
 password = DB_PASSWORD
 default-character-set = utf8
-```
-
-run for the first time:
-```
-manage.py makemigrations <app_name> 
-manage.py migrate
 ```
