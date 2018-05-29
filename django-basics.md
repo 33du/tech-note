@@ -11,10 +11,12 @@ python manage.py startapp polls #creates app
 
 #### MVC in django
 model: manages the data, logic and rules of the application
+
 view: output representation of information -> **templates** in django
+
 controller: accepts input and converts it to commands for the model or view -> **view** in django, a Python callback function for a particular URL, describes which data is presented
 
-**urls.py** in project and app folder:
+**urls.py** in project and app folder: 
 matches a url to a function in view
 
 polls/urls.py:
