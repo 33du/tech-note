@@ -88,3 +88,26 @@ user = DB_USER
 password = DB_PASSWORD
 default-character-set = utf8
 ```
+
+**model**: data structure for DB
+polls/models.py:
+```
+from django.db import models
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+```
+in settings.py:
+add 'polls.apps.PollsConfig' to INSTALLED_APPS
+
+**modify the DB**: interactively
+```
+python manage.py shell
+```
