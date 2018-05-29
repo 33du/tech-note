@@ -46,15 +46,41 @@ def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 ```
 
-#### Database (MongoDB) with django-nonrel
-in settings.py:
+#### Database (mysql)
+settings.py:
 ```
 DATABASES = {
-   'default' : {
-      'ENGINE' : 'django_mongodb_engine',
-      'NAME' : 'my_database'
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'DB_NAME',
+        'USER': 'DB_USER',
+        'PASSWORD': 'DB_PASSWORD',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
+    }
 }
+```
+
+or:
+```
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': '/path/to/my.cnf',
+        },
+    }
+}
+```
+
+/path/to/my.cnf:
+```
+[client]
+database = DB_NAME
+host = localhost
+user = DB_USER
+password = DB_PASSWORD
+default-character-set = utf8
 ```
 
 run for the first time:
