@@ -24,6 +24,8 @@ urlpatterns = [
 
 
 **in views:** render the template and return HttpResponse, pass parameters to template using context
+
+HttpRequest -> view -> HttpResponse
 ```
 from django.shortcuts import render
 
@@ -60,4 +62,58 @@ def detail(request, question_id):
 
 To prevent **Cross Site Request Forgeries**: 
 all POST forms that are targeted at internal URLs should use the {% csrf_token %} template tag
-> <form ...> {% csrf_token %} ... </form>
+```
+<form ...> 
+    {% csrf_token %} 
+    ... 
+</form>
+```
+Then: always return an **HttpResponseRedirect** after successfully dealing with POST data
+```
+return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+```
+
+### generic views - a shortcut
+polls/urls.py:
+```
+from django.urls import path
+
+from . import views
+
+app_name = 'polls'
+urlpatterns = [
+    path('', views.IndexView.as_view(), name='index'),
+    path('<int:pk>/', views.DetailView.as_view(), name='detail'),
+    path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
+    path('<int:question_id>/vote/', views.vote, name='vote'),
+]
+```
+
+polls/views.py:
+```
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
+from django.views import generic
+
+from .models import Choice, Question
+
+
+class IndexView(generic.ListView):
+    template_name = 'polls/index.html'
+    context_object_name = 'latest_question_list'
+
+    def get_queryset(self):
+        """Return the last five published questions."""
+        return Question.objects.order_by('-pub_date')[:5]
+
+
+class DetailView(generic.DetailView): #DetailView expects the primary key value captured from the URL to be called "pk"
+    model = Question
+    template_name = 'polls/detail.html'
+
+
+class ResultsView(generic.DetailView):
+    model = Question
+    template_name = 'polls/results.html'
+```
