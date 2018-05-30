@@ -70,9 +70,11 @@ class QuestionIndexViewTests(TestCase):
         )
 ```
 
-Further can use: **Selenium** or django built-in **LiveServerTestCase** to test behaviors of html
+### Further
+use **Selenium** or django built-in **LiveServerTestCase** to test behaviors of html
 
-Or **coverage.py**:
+### code coverage
+use **coverage.py**:
 ```
 coverage run --source='.' manage.py test myapp
 coverage report
