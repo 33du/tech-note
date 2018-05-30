@@ -69,3 +69,15 @@ class QuestionIndexViewTests(TestCase):
             ['<Question: Past question.>']
         )
 ```
+
+Further can use: **Selenium** or django built-in **LiveServerTestCase** to test behaviors of html
+
+Or **coverage.py**:
+```
+coverage run --source='.' manage.py test myapp
+coverage report
+```
+for more detailed report:
+```
+coverage html #generates htmlcov/index.html
+```
