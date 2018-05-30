@@ -73,7 +73,9 @@ Then: always return an **HttpResponseRedirect** after successfully dealing with 
 return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 ```
 
-### generic views - a shortcut
+### generic views - a shortcut for standard views
+use generic.ListView or generic.DetailView to create views and use them in urls
+
 polls/urls.py:
 ```
 from django.urls import path
