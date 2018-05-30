@@ -98,10 +98,9 @@ from django.views import generic
 
 from .models import Choice, Question
 
-
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
-    context_object_name = 'latest_question_list'
+    context_object_name = 'latest_question_list' #not use default name, unlike in detail and result, where context obj name is automatically question
 
     def get_queryset(self):
         """Return the last five published questions."""
@@ -111,7 +110,7 @@ class IndexView(generic.ListView):
 class DetailView(generic.DetailView): #DetailView expects the primary key value captured from the URL to be called "pk"
     model = Question
     template_name = 'polls/detail.html'
-
+    
 
 class ResultsView(generic.DetailView):
     model = Question
