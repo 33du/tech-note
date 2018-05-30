@@ -73,7 +73,7 @@ class QuestionIndexViewTests(TestCase):
 ### Further
 use **Selenium** or django built-in **LiveServerTestCase** to test behaviors of html
 
-### code coverage
+### Code coverage
 use **coverage.py**:
 ```
 coverage run --source='.' manage.py test myapp
