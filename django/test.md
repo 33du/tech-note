@@ -1,4 +1,6 @@
 polls/tests.py: inherit TestCase and implement test method beginned with "test"
+
+### tests for models
 ```
 import datetime
 
@@ -24,7 +26,7 @@ then:
 ```
 python manage.py test polls
 ```
-### test views
+### tests for views
 test **Client**: simulates a user interacting with the code at the view level
 #### in shell:
 ```
@@ -37,9 +39,14 @@ client = Client()
 response = client.get('/polls/')
 response.status_code
 ```
-
-#### in tests.py: TestCase has own client
+ 
+#### in tests.py: TestCase has own client and admin input (create_question)
 ```
+def create_question(question_text, days):
+    time = timezone.now() + datetime.timedelta(days=days)
+    return Question.objects.create(question_text=question_text, pub_date=time)
+    
+
 class QuestionIndexViewTests(TestCase):
     def test_no_questions(self):
         """
@@ -49,4 +56,16 @@ class QuestionIndexViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "No polls are available.")
         self.assertQuerysetEqual(response.context['latest_question_list'], [])
+        
+    def test_past_question(self):
+        """
+        Questions with a pub_date in the past are displayed on the
+        index page.
+        """
+        create_question(question_text="Past question.", days=-30)
+        response = self.client.get(reverse('polls:index'))
+        self.assertQuerysetEqual(
+            response.context['latest_question_list'],
+            ['<Question: Past question.>']
+        )
 ```
