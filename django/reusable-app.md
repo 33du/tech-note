@@ -1,4 +1,4 @@
-###### A folder must contain a __init__.py to be considered a python package. Use setuptools to build the package.
+##### A folder must contain a __init__.py to be considered a python package. Use setuptools to build the package.
 
 1. move /myapp to a new folder /django-myapp outside the project folder
 
@@ -10,7 +10,7 @@ python setup.py sdist
 ```
 -> new package inside /dist
 
-###### install the package
+##### install the package
 ```
 pip install --user django-myapp/dist/django-myapp-0.1.tar.gz
 ```
