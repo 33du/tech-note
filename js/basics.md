@@ -1,4 +1,4 @@
-console.log(output);
+console.log(output);  
 let number = Number(prompt("Pick a number")); -> open a dialog
 
 ### Data types
@@ -23,15 +23,11 @@ null || "user" -> "user"
 **let**, **const**: block scope (inside {}), not hoisted
 
 ### Function
-- const square = function(x) {};  
+- const square = function(x) {}; //square is function name  
 - function square(x) {}
 - const square = (x) => {return x * x;};  
   if only one parameter and single expression: const square = x => x * x;
   
-pass too many arguments to a function: extra ones ignored  
-pass too few: missing arguments get assigened undefined
-**Optional argument**: function power(base, exponent = 2) {}
-
 ```
 function multiplier(factor) {  
   return number => number * factor;  
@@ -41,4 +37,14 @@ let twice = multiplier(2);
 console.log(twice(5));  
 ```
 
+pass too many arguments to a function: extra ones ignored  
+pass too few: missing arguments get assigened undefined
+**Optional argument**: function power(base, exponent = 2) {}
 
+### Object 
+access a property:  
+obj.prop  
+obj\[prop\]: prop here can be a variable, number, or strings like "aaa bbb"
+
+**string properties**: length, toUpperCase  
+**array methods**: push, pop, shift(pop from end), unshift(push to begin)
