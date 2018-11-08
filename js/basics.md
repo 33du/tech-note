@@ -1,4 +1,4 @@
-###Data types 
+### Data types
 **typeof** can return: string, number, boolean, undefined(~null), function, object  
 array -> object
 
