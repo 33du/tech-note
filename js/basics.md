@@ -24,3 +24,16 @@ null || "user" -> "user"
 - function square(x) {}
 - const square = (x) => {return x * x;};  
   if only one parameter and single expression: const square = x => x * x;
+  
+pass too many arguments to a function: extra ones ignored  
+pass too few: missing arguments get assigened undefined
+**Optional argument**: function power(base, exponent = 2) {}
+
+***
+function multiplier(factor) {  
+  return number => number * factor;  
+}
+
+let twice = multiplier(2);  
+console.log(twice(5));  
+***
