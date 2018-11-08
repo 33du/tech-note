@@ -1,4 +1,4 @@
-LANG=en_US 修改语言
+LANG=en_US 修改语言  
 echo $LANG 显示当前语言
 
 根目录（/）下的：
