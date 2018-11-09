@@ -41,10 +41,47 @@ pass too many arguments to a function: extra ones ignored
 pass too few: missing arguments get assigened undefined
 **Optional argument**: function power(base, exponent = 2) {}
 
+Any number of arguments:  
+function max(...numbers) {} //put numbers in an array  
+-> call the function:  
+max(4, 1, 9, -2) or  
+let numbers = \[5, 1, 7\]; max(...numbers));
+
+function max(\[num1, num2, num3\]) {}
+
 ### Object 
+(Array is object)
+
+```
+let day1 = {  
+  squirrel: false,  
+  events: ["work", "touched tree", "pizza", "running"],  
+  "touched tree": "Touched a tree"  
+};
+```
+
 access a property:  
 obj.prop  
 obj\[prop\]: prop here can be a variable, number, or strings like "aaa bbb"
 
-**string properties**: length, toUpperCase  
-**array methods**: push, pop, shift(pop from end), unshift(push to begin)
+**delete** obj.prop;
+"prop" **in** obj -> false
+**Object.keys**(obj) -> array of property names
+
+**const** object: must point to same object, but contents of the object can change
+
+**string methods**: length, toUpperCase, slice, indexOf(can search for a string), trim(remove whitespace from start and end), padStart, split, join, repeat  
+**array methods**: push, pop, shift(pop from end), unshift(push to begin), includes, indexOf(only search for an element), lastIndexOf, slice(get part of the array)
+
+**Iterate over array**: for (let element of array)
+
+### JSON
+Serialize data
+
+JSON.stringify(object) -> string
+JSON.parse(string) -> object
+
+### Math
+0 <= Math.random() < 1  
+Math.floor: round down  
+Math.ceil, Math.round
