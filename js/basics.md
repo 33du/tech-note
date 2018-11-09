@@ -38,7 +38,7 @@ console.log(twice(5));
 ```
 
 pass too many arguments to a function: extra ones ignored  
-pass too few: missing arguments get assigened undefined
+pass too few: missing arguments get assigened undefined  
 **Optional argument**: function power(base, exponent = 2) {}
 
 Any number of arguments:  
@@ -64,8 +64,8 @@ access a property:
 obj.prop  
 obj\[prop\]: prop here can be a variable, number, or strings like "aaa bbb"
 
-**delete** obj.prop;
-"prop" **in** obj -> false
+**delete** obj.prop;  
+"prop" **in** obj -> false  
 **Object.keys**(obj) -> array of property names
 
 **const** object: must point to same object, but contents of the object can change
@@ -78,7 +78,7 @@ obj\[prop\]: prop here can be a variable, number, or strings like "aaa bbb"
 ### JSON
 Serialize data
 
-JSON.stringify(object) -> string
+JSON.stringify(object) -> string  
 JSON.parse(string) -> object
 
 ### Math
