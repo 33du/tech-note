@@ -8,6 +8,9 @@ array -> object
 **string**: \ to escape  
 "half of 100 is ${100 / 2}": ${} is a template literal, its result will be computed, converted to a string, and included at that position
 
+string.**charCodeAt**(index) -> code of a unit  
+string.**codePointAt**(index) -> code of a full unicode character (one or two unit)
+
 undefined == null  
 undefined !== null  
 NaN != NaN
