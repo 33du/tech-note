@@ -49,6 +49,7 @@ array.**map**(s => s.name); -> apply to every element and return a new array
 array.reduce(combine, start = array\[0\])  
 \[1, 2, 3, 4\].reduce((a, b) => a + b) -> 10
 
-array.**some**(test) -> true if test(element) = true for any element
+array.**some**(test) -> true if test(element) = true for any element  
+array.**every**(test)
 
 array.**findIndex**(c => c.name == name); -> -1 if no such element
