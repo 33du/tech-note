@@ -67,6 +67,10 @@ access a property:
 obj.prop  
 obj\[prop\]: prop here can be a variable, number, or strings like "aaa bbb"
 
+pass an object:  
+{events} if only "events" needed  
+or {squirrel, events}
+
 **delete** obj.prop;  
 "prop" **in** obj -> false  
 **Object.keys**(obj) -> array of property names
