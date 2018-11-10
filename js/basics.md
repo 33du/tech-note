@@ -52,6 +52,19 @@ let numbers = \[5, 1, 7\]; max(...numbers));
 
 function max(\[num1, num2, num3\]) {}
 
+**function inside a function**:  
+```
+function buildGraph(edges) {  
+  let graph = Object.create(null);  
+  function addEdge(from, to) { }  
+  for (let [from, to] of edges.map(r => r.split("-"))) {  
+    addEdge(from, to);  
+    addEdge(to, from);  
+  }  
+  return graph;  
+}
+```
+
 ### Object 
 (Array is object)
 
@@ -75,7 +88,8 @@ or {squirrel, events}
 "prop" **in** obj -> false  
 **Object.keys**(obj) -> array of property names
 
-**const** object: must point to same object, but contents of the object can change
+**const** object: must point to same object, but contents of the object can change  
+**Object.freeze**(object): make object immutable
 
 **string methods**: length, toUpperCase, slice, indexOf(can search for a string), trim(remove whitespace from start and end), padStart, split, join, repeat  
 **array methods**: push, pop, shift(pop from end), unshift(push to begin), includes, indexOf(only search for an element), lastIndexOf, slice(get part of the array)
