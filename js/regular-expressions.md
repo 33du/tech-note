@@ -67,6 +67,14 @@ dateTime.test("01-30-2003 15:20"); // → true
 the repetition operators (+, \*, ?, and {}) are greedy -> they match as much as they can and backtrack from there  
 put a question mark after them (+?, \*?, ??, {}?) -> they become nongreedy and start by matching as little as possible
 
+#### Unicode
+/../**u**  
+**\p{Property=Value}** for unicode:  
+```
+/\p{Script=Greek}/u.test("α") // -> true  
+/\p{Alphabetic}/u.test("α") // -> true
+```
+
 ### Methods
 #### test
 checks whether the parameter contains a match of the pattern in the expression 
@@ -76,7 +84,8 @@ checks whether the parameter contains a match of the pattern in the expression
 ```
 
 #### exec
-return null if no match was found and return an object with information about the match otherwise
+return null if no match was found and return an object with information about the match otherwise  
+(an array containing all matched groups)
 ```
 let match = /\d+/.exec("one two 100");  
 console.log(match); // → ["100"]  
@@ -99,7 +108,10 @@ console.log(getDate("1-30-2003"));
 // → Thu Jan 30 2003 00:00:00 GMT+0100 (CET)
 ```
 
-#### replace
+#### match (for string)
+string.match(regExp) -> return value like exec
+
+#### replace (for string)
 string.replace(first, second): replace first with second, first can also be regular expression, replace the first match in string -> /../**g**: global, replace all matches in string
 
 ```
@@ -122,5 +134,5 @@ stock.replace(/(\d+) (\w+)/g, minusOne);
 // → (\d+) is amount, (\w+) is unit
 ```
 
-#### search
+#### search (for string)
 string.search(regExp) -> like indexOf but with regular expression
