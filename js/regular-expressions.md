@@ -2,6 +2,13 @@ Create a regular expression:
 - let re = new **RegExp**("abc");
 - let re = /abc/; (must use backslash to escape some characters with special meaning if they are meant to represent the character itself)
 
+**create dynamically**:  
+```
+let name = "harry";  
+let regexp = new RegExp("\\b(" + name + ")\\b", "gi");
+```
+gi: global and case insensitive
+
 ### Syntax
 #### Single character
 \[0123456789\] or \[0-9\] or **\d**: any digit character  
@@ -20,7 +27,8 @@ dateTime.test("01-30-2003 15:20"); // → true
 \[\d.\]: any digit or a period character (period character loses here its special meaning)
 
 **Invert**: caret(^) after \[  
-\[^01\]: any character except 0 or 1
+\[^01\]: any character except 0 or 1  
+\[^\]: any character (not in empty set)
 
 #### A sequence of characters
 **+** after an element: it may be repeated more than once  
@@ -54,6 +62,10 @@ dateTime.test("01-30-2003 15:20"); // → true
 
 **pipe character (|)**: or  
 (pig|cow|chicken)
+
+#### Greedy
+the repetition operators (+, \*, ?, and {}) are greedy -> they match as much as they can and backtrack from there  
+put a question mark after them (+?, \*?, ??, {}?) -> they become nongreedy and start by matching as little as possible
 
 ### Methods
 #### test
@@ -89,3 +101,26 @@ console.log(getDate("1-30-2003"));
 
 #### replace
 string.replace(first, second): replace first with second, first can also be regular expression, replace the first match in string -> /../**g**: global, replace all matches in string
+
+```
+console.log(  
+  "Liskov, Barbara\nMcCarthy, John\nWadler, Philip"  
+    .replace(/(\w+), (\w+)/g, "$2 $1"));  
+// → Barbara Liskov  
+//   John McCarthy  
+//   Philip Wadler  
+```
+**$1**, **$2** refer to groups in the pattern, **$&** is the whole match
+
+second can be a function: str => str.toUpperCase()
+```
+let stock = "1 lemon, 2 cabbages, and 101 eggs";  
+function minusOne(match, amount, unit) {  
+
+}  
+stock.replace(/(\d+) (\w+)/g, minusOne);  
+// → (\d+) is amount, (\w+) is unit
+```
+
+#### search
+string.search(regExp) -> like indexOf but with regular expression
