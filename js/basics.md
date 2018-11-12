@@ -6,7 +6,7 @@ let number = Number(prompt("Pick a number")); -> open a dialog
 array -> object
 
 **string**: \ to escape  
-"half of 100 is ${100 / 2}": ${} is a template literal, its result will be computed, converted to a string, and included at that position
+\`half of 100 is ${100 / 2}\`: ${} is a template literal enclosed by the back-tick (\` \`), its result will be computed, converted to a string, and included at that position
 
 string.**charCodeAt**(index) -> code of a unit  
 string.**codePointAt**(index) -> code of a full unicode character (one or two unit)
