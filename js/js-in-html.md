@@ -34,7 +34,8 @@ text node: nodeValue
 
 element node: **getElementsByTagName**("a")\[0\] returns all (indirect) child nodes with given tag as array-like object  
 **getElementsByClassName**  
-**getElementById**
+**getElementById**  
+**querySelector**, **querySelectorAll**
 
 #### Change the document
 remove, appendChild, insertBefore, replaceChild
@@ -47,7 +48,10 @@ getAttribute, setAttribute: for unstandard attributes (standard attributes can b
 only "class" is accessed by node.className
 
 ### Layout
-**offsetWidth, offsetHeight**: element size in pixels
+**offsetWidth, offsetHeight**: element size in pixels  
 **clientWidth, clientHeight**: size inside border  
 **getBoundingClientRect**: size of an element and its position relative to the viewport (returns an object with top, bottom, left, and right properties)  
 **pageXOffset, pageYOffset**: current position
+
+### Style
+element.style.fontFamily = ...
