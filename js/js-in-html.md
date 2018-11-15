@@ -37,7 +37,8 @@ text node: nodeValue
 element node: **getElementsByTagName**("a")\[0\] returns all (indirect) child nodes with given tag as array-like object  
 **getElementsByClassName**  
 **getElementById**  
-**querySelector**, **querySelectorAll**
+**querySelector**("#id")  
+**querySelectorAll**
 
 #### Change the document
 remove, appendChild, insertBefore, replaceChild
