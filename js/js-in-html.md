@@ -54,7 +54,9 @@ only "class" is accessed by node.className
 **offsetWidth, offsetHeight**: element size in pixels  
 **clientWidth, clientHeight**: size inside border  
 **getBoundingClientRect**: size of an element and its position relative to the viewport (returns an object with top, bottom, left, and right properties)  
-**pageXOffset, pageYOffset**: current position
+**pageXOffset, pageYOffset**: current scroll position
+
+**innerHeight**: global binding for window height
 
 ### Style
 element.style.fontFamily = ...
