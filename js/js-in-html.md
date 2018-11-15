@@ -25,7 +25,9 @@ Access these objects: **document**
 properties: **documentElement** -> \<html> (root of the tree), head, body
 
 ### Node properties
-nodeType = Node.ELEMENT_NODE(like <p> or <div>), Node.TEXT_NODE, Node.COMMENT_NODE, ...  
+nodeType = Node.ELEMENT_NODE(like \<p> or \<div>), Node.TEXT_NODE, Node.COMMENT_NODE, ...  
+
+nodeName: returns the tag name in all uppercase
   
 #### Traverse: 
 parentNode, childNodes, firstChild, lastChild, previousSibling, nextSibling, children(contains only element children)  
