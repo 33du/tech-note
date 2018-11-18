@@ -60,3 +60,9 @@ only "class" is accessed by node.className
 
 ### Style
 element.style.fontFamily = ...
+
+### Get fontSize value of an element
+```
+let size = window.getComputedStyle(element).getPropertyValue('font-size');  
+element.style.fontSize = parseInt(size) * 5 + "px";
+```
