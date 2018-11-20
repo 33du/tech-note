@@ -97,7 +97,8 @@ or {squirrel, events}
 **Iterate over array**: for (let element of array)
 
 **Array.from()**: make an array out of an array-like object  
-string.map(l => \[...l\]): turn a string to array
+string.map(l => \[...l\]): turn a string to array  
+**...**: spread operator, seperating elements
 
 ### JSON
 Serialize data
