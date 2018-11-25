@@ -28,3 +28,16 @@
 </script>
 ```
 Context: **2d** or **webgl** for 3D
+
+### load image
+```
+<canvas></canvas>  
+<script>  
+  let cx = document.querySelector("canvas").getContext("2d");  
+  let img = document.createElement("img");  
+  img.src = "img/hat.png";  
+  img.addEventListener("load", () => {  
+      cx.drawImage(img, x, 10);  
+  });  
+</script>
+```
