@@ -11,3 +11,20 @@
   circle.setAttribute("fill", "cyan");  
 </script>  
 ```
+
+## Canvas
+```
+<canvas width="120" height="60"></canvas>  
+
+<script>  
+  let canvas = document.querySelector("canvas");  
+  let context = canvas.getContext("2d");  
+  context.fillStyle = "red";  
+  context.fillRect(10, 10, 100, 50);  
+  
+  context.strokeStyle = "blue";
+  context.lineWidth = 5;
+  context.strokeRect(135, 5, 50, 50);
+</script>
+```
+Context: **2d** or **webgl** for 3D
