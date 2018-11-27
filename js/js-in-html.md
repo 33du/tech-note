@@ -38,7 +38,7 @@ element node: **getElementsByTagName**("a")\[0\] returns all (indirect) child no
 **getElementsByClassName**  
 **getElementById**  
 **querySelector**("#id")  
-**querySelectorAll**
+**querySelectorAll**("\[name=color\]")
 
 #### Change the document
 remove, appendChild, insertBefore, replaceChild
