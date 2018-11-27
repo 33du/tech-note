@@ -61,3 +61,47 @@ get active element:
   console.log(document.activeElement.tagName); // → BODY
 </script>
 ```
+
+### Read in a file
+can access the type, size, name of the file directly, reading the content is more complecated with a **FileReader** object and "load" event:
+```
+<input type="file" multiple>
+<script>
+  let input = document.querySelector("input");
+  input.addEventListener("change", () => {
+    for (let file of Array.from(input.files)) {
+      if (file.type) console.log("File type:", file.type);
+      
+      let reader = new FileReader();
+      reader.addEventListener("load", () => {
+        console.log("File", file.name, "starts with",
+                    reader.result.slice(0, 20));
+      });
+      reader.readAsText(file);
+    }
+  });
+</script>
+```
+
+Catch error:
+```
+function readFileText(file) {
+  return new Promise((resolve, reject) => {
+    let reader = new FileReader();
+    reader.addEventListener(
+      "load", () => resolve(reader.result));
+    reader.addEventListener(
+      "error", () => reject(reader.error));
+    reader.readAsText(file);
+  });
+}
+```
+
+## Storing data client-side
+**localStorage** object: store strings under names (site-specific)
+```
+localStorage.setItem("username", "marijn");
+console.log(localStorage.getItem("username")); // → marijn
+localStorage.removeItem("username");
+```
+Can use **JSON.stringify** ...
