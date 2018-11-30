@@ -1,7 +1,10 @@
 ### Process global binding
-process.exit(0)
+**process.exit(0)**
 
-process.argv
+**process.stdout.write()**: writable stream  
+similar to console.log, but without new line
+
+**process.argv**
 ```
 //showargv.js
 console.log(process.argv);
@@ -57,7 +60,7 @@ console.log("The file contains:",
 ```
 
 ### HTTP module
-start a server:
+**server**:
 ```
 const {createServer} = require("http");
 let server = createServer((request, response) => {
@@ -70,3 +73,46 @@ let server = createServer((request, response) => {
 server.listen(8000);
 ```
 -> http://localhost:8000/
+
+**client**:
+```
+const {request} = require("http");
+let requestStream = request({
+  hostname: "eloquentjavascript.net",
+  path: "/20_node.html",
+  method: "GET",
+  headers: {Accept: "text/html"}
+}, response => {
+  console.log("Server responded with status code",
+              response.statusCode);
+});
+// requestStream.write(...);
+requestStream.end();
+```
+
+**reading from stream**(request, response): with event handler (**on** ~ addEventListener)  
+events: "**data**" -> fires every time data comes in, "**end**"
+
+```
+const {createServer} = require("http");
+createServer((request, response) => {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  request.on("data", chunk =>
+    response.write(chunk.toString().toUpperCase()));
+  request.on("end", () => response.end());
+}).listen(8000);
+```
+chunk is buffer object and can be converted with toString()
+
+```
+const {request} = require("http");
+request({
+  hostname: "localhost",
+  port: 8000,
+  method: "POST"
+}, response => {
+  response.on("data", chunk =>
+    process.stdout.write(chunk.toString()));
+}).end("Hello server");
+// → HELLO SERVER
+```
