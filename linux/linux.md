@@ -70,3 +70,8 @@ cp -l bashrc bashrc_hlink #hard link
 
 执行文件路径： $PATH 含有各种/bin，输入一个指令（如ls）时会在$PATH的所有目录下找文件名为ls的可执行文件  
 PATH="$PATH":/root 把/root加入path中
+
+```
+source $HOME/.bash_profile
+```
+load the config into current shell
